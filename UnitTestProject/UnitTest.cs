@@ -61,7 +61,7 @@ namespace PublisherFunctionAppUnitTestProject
             requestMessage.Headers.Add(Constants.FILE_TYPE, new Fixture().Create<string>());
             FileStream fileStream = File.OpenRead(docpath);
             requestMessage.Content = new StreamContent(fileStream);
-            var result = await PublisherFunctionApp.ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
+            var result = await ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
             HttpContent httpContent = result.Content;
             string Errormessage = httpContent.ReadAsStringAsync().Result;
             Assert.IsTrue("The given header FileExtension was not found." == Errormessage);
@@ -76,7 +76,7 @@ namespace PublisherFunctionAppUnitTestProject
             requestMessage.Headers.Add(Constants.FILE_TYPE, new Fixture().Create<string>());
             FileStream fileStream = File.OpenRead(docpath);
             requestMessage.Content = new StreamContent(fileStream);
-            var result = await PublisherFunctionApp.ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
+            var result = await ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
             HttpContent httpContent = result.Content;
             string Errormessage = httpContent.ReadAsStringAsync().Result;
             Assert.IsTrue("The given header Height was not found." == Errormessage);
@@ -92,7 +92,7 @@ namespace PublisherFunctionAppUnitTestProject
             requestMessage.Headers.Add(Constants.FILE_TYPE, new Fixture().Create<string>());
             FileStream fileStream = File.OpenRead(docpath);
             requestMessage.Content = new StreamContent(fileStream);
-            var result = await PublisherFunctionApp.ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
+            var result = await ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
             HttpContent httpContent = result.Content;
             string Errormessage = httpContent.ReadAsStringAsync().Result;
             Assert.IsTrue("The given header Width was not found." == Errormessage);
@@ -110,7 +110,7 @@ namespace PublisherFunctionAppUnitTestProject
             requestMessage.Headers.Add(Constants.WIDTH, new Fixture().Create<string>());
             FileStream fileStream = File.OpenRead(docpath);
             requestMessage.Content = new StreamContent(fileStream);
-            var result = await PublisherFunctionApp.ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
+            var result = await ImageConverterFunction.Run(requestMessage, new Mock<ILogger>().Object);
             HttpContent httpContent = result.Content;
             string Errormessage = httpContent.ReadAsStringAsync().Result;
             Assert.IsTrue("The given header FileType was not found." == Errormessage);

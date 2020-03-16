@@ -114,9 +114,9 @@ namespace PublisherFunctionApp
                     try
                     {
                         //To include license
-                        //Aspose.Pdf.License license = new Aspose.Pdf.License();
-                        //license.SetLicense("Aspose.Pdf.lic");
-                        //log.LogInformation("Aspose SetLicense Success");
+                        Aspose.Pdf.License license = new Aspose.Pdf.License();
+                        license.SetLicense("Aspose.Pdf.lic");
+                        log.LogInformation("Aspose SetLicense Success");
                         ImageFormat format = GetImageFormat(headerModel.FileType, log);
                         PdfConverter pdfConverter = new PdfConverter();
                         //Validating pdf file specific headers
